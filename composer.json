@@ -1,0 +1,27 @@
+{
+  "name": "matroskin92/yii2-opencart",
+  "description": "Package",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "opencart"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sergey Smirnov",
+      "email": "panterr92@yandex.ru",
+      "homepage": "https://github.com/matroskin92/yii2-opencart",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "yiisoft/yii2": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "matroskin92\\opencart\\": "src"
+    }
+  }
+}
