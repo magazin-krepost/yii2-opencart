@@ -27,8 +27,6 @@ class OrderModel extends ActiveRecord
 			$request = $this->findOne($order_id);
 			$request->order_status_id = $order['order_status_id'];
 
-			var_dump($request->update());
-
 		}
 
 		
