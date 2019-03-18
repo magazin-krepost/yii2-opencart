@@ -23,15 +23,15 @@ class OrderModel extends ActiveRecord
 
 	public function upd($order_id, $order){
 
-		
-
-		$request = $this->findOne($order_id);
-
-		if (isset($order['order_status_id'])) {
+		if ( !empty($order['order_status_id']) ) {
+			$request = $this->findOne($order_id);
 			$request->order_status_id = $order['order_status_id'];
+
+			var_dump($request->update());
+
 		}
 
-		$request->update();
+		
 
 	}
     
