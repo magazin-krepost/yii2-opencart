@@ -5,6 +5,7 @@ use yii\helpers\ArrayHelper;
 use matroskin92\opencart\models\OrderModel 			as OrderModel;
 use matroskin92\opencart\models\OrderProductModel	as OrderProductModel;
 use matroskin92\opencart\models\OrderTotalModel		as OrderotalModel;
+use matroskin92\opencart\models\OrderHistoryModel	as OrderHistoryModel;
 
 class OrderController {
 
@@ -54,6 +55,23 @@ class OrderController {
 		}
 		
 		return $address;
+
+	}
+
+	public function setOrderId($order_id, $status_id){ // History
+
+		$model_order = new OrderModel();
+		$model_order_history = new OrderHistoryModel();
+
+		$model_order->upd($order_id, array(
+			'order_status_id' => $status_id
+		));
+
+		$model_order_history->upd($order_id, array(
+			'order_status_id' => $status_id
+		));
+
+
 
 	}
 

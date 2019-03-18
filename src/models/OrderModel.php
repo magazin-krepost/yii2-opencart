@@ -20,6 +20,20 @@ class OrderModel extends ActiveRecord
 	public function last(){
 		return $this->find()->max('order_id');
 	}
+
+	public function upd($order_id, $order){
+
+		
+
+		$request = $this->findOne($order_id);
+
+		if (isset($order['order_status_id'])) {
+			$request->order_status_id = $order['order_status_id'];
+		}
+
+		$request->update();
+
+	}
     
 
 } 
