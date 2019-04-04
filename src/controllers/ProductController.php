@@ -4,6 +4,7 @@ namespace matroskin92\opencart\controllers;
 use Yii;
 use yii\helpers\ArrayHelper;
 use matroskin92\opencart\models\ProductModel as ProductModel;
+use matroskin92\opencart\models\ProductMultistoreModel as ProductMultistoreModel;
 use matroskin92\opencart\models\ProductDescriptionModel as DescriptionModel;
 use matroskin92\opencart\models\ProductImageModel as ImageModel;
 use matroskin92\opencart\models\ProductStoreModel as StoreModel;
@@ -78,6 +79,20 @@ class ProductController {
 		return $model_product->upd($product);
 
 	}
+
+	public function multistore($product){
+
+		$model_multistore = new ProductMultistoreModel();
+		return $model_multistore->set($product);
+
+	}
+
+	public function clearMultistore(){
+		$model_multistore = new ProductMultistoreModel();
+		return $model_multistore->clear();
+	}
+
+
 	
 }
 
