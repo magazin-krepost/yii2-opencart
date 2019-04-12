@@ -8,6 +8,7 @@ use matroskin92\opencart\models\ProductMultistoreModel as ProductMultistoreModel
 use matroskin92\opencart\models\ProductDescriptionModel as DescriptionModel;
 use matroskin92\opencart\models\ProductImageModel as ImageModel;
 use matroskin92\opencart\models\ProductStoreModel as StoreModel;
+use matroskin92\opencart\models\ProductAnalogModel as ProductAnalog;
 
 class ProductController {
 
@@ -94,7 +95,7 @@ class ProductController {
 
 	public function setAnalog($product_id, $analog_id){
 		$model_analog = new ProductAnalog();
-		return $model_analog->set($product_id, $analog_id);
+		$model_analog->set($product_id, $analog_id);
 	}
 	
 }

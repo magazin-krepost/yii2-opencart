@@ -15,8 +15,8 @@ class ProductAnalogModel extends ActiveRecord
     public function set($product_id, $analog_id)
 	{
 		$request = new $this;
-		$request->product_id = $product['product_id'];
-		$request->analog_id = $product['analog_id'];
+		$request->product_id = $product_id;
+		$request->analog = $analog_id;
 		$request->save();
 	}
 
