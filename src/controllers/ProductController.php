@@ -92,7 +92,10 @@ class ProductController {
 		return $model_multistore->clear();
 	}
 
-
+	public function setAnalog($product_id, $analog_id){
+		$model_analog = new ProductAnalog();
+		return $model_analog->set($product_id, $analog_id);
+	}
 	
 }
 
