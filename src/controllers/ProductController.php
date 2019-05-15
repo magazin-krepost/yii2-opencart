@@ -88,6 +88,11 @@ class ProductController {
 
 	}
 
+	public function getMultistoreSum($product_id){
+		$model_multistore = new ProductMultistoreModel();
+		return $model_multistore->getSum($product_id);
+	}
+
 	public function clearMultistore(){
 		$model_multistore = new ProductMultistoreModel();
 		return $model_multistore->clear();
