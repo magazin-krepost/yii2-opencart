@@ -9,6 +9,7 @@ use matroskin92\opencart\models\ProductDescriptionModel as DescriptionModel;
 use matroskin92\opencart\models\ProductImageModel as ImageModel;
 use matroskin92\opencart\models\ProductStoreModel as StoreModel;
 use matroskin92\opencart\models\ProductAnalogModel as ProductAnalog;
+use matroskin92\opencart\models\ProductBusinessru as ProductBusinessru;
 
 class ProductController {
 
@@ -17,6 +18,28 @@ class ProductController {
 		$model_product = new ProductModel();
 		return $model_product->get($product_id);
 		
+	}
+
+	public function getBusinessruId($product_id){
+
+		$model_businessru = new ProductBusinessru();
+		$result = $model_businessru->getGoodId($product_id);
+
+		return $result['good_id'];
+
+	}
+
+	public function getByBusinessruId($good_id){
+
+		$model_businessru = new ProductBusinessru();
+		$result = $model_businessru->getProductId($good_id);
+
+		if ( !empty($result) ){
+			return $this->get($result['product_id']);
+		} else {
+			return NULL;
+		}
+
 	}
 
 	public function getBySku($sku){
@@ -101,6 +124,15 @@ class ProductController {
 	public function setAnalog($product_id, $analog_id){
 		$model_analog = new ProductAnalog();
 		$model_analog->set($product_id, $analog_id);
+	}
+
+	public function setBusinessruId($product){
+		$model_businessru = new ProductBusinessru();
+		$model_businessru->set(array(
+			'product_id' => $product['product_id'],
+			'good_id' => $product['good_id']
+		));
+
 	}
 	
 }
