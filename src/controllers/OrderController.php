@@ -67,9 +67,9 @@ class OrderController {
 			'order_status_id' => $status_id
 		));
 
-		$model_order_history->upd($order_id, array(
-			'order_status_id' => $status_id
-		));
+		// $model_order_history->upd($order_id, array(
+		// 	'order_status_id' => $status_id
+		// ));
 
 
 
