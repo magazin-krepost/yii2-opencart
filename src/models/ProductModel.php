@@ -7,13 +7,11 @@ use yii\db\ActiveRecord;
 
 class ProductModel extends ActiveRecord
 {
-	public static function tableName()
-    {
-        return '{{oc_product}}';
-    }
+	public static function tableName(){
+  	return '{{oc_product}}';
+  }
 
-    public function set($product)
-	{
+  public function set($product){
 
 		$date = new \DateTime('today');
 
@@ -76,31 +74,36 @@ class ProductModel extends ActiveRecord
 		return $request->product_id;
 	}
 
-    public function get($product_id){
-    	return $this->find()
-				->where(['product_id' => $product_id])
-				->asArray()
-				->one();
-    }
+  public function get($product_id){
+  	return $this->find()
+			->where(['product_id' => $product_id])
+			->asArray()
+			->one();
+  }
 
-    public function getBySku($sku){
-    	return $this->find()
-				->where(['sku' => $sku])
-				->asArray()
-				->one();
-    }
+  public function getBySku($sku){
+  	return $this->find()
+			->where(['sku' => $sku])
+			->asArray()
+			->one();
+  }
 
-    public function getAll()
-	{
+  public function getAll(){
 		return $this->find()
 				->asArray()
 				->orderBy(['product_id' => 'ASK'])
 				->all();
 	}
 
+	public function getZeroPrice(){
+		return $this->find()
+				->where(['price' => 0])
+				->asArray()
+				->orderBy(['product_id' => 'ASK'])
+				->all();
+	}
+
 	public function upd($product){
-
-
 
 		$request = $this->findOne($product['product_id']);
 

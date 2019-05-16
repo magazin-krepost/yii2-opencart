@@ -94,6 +94,14 @@ class ProductController {
 
 	}
 
+	public function getZeroPrice($column = 'product_id'){
+		$model_product = new ProductModel();
+		return ArrayHelper::index(
+			$model_product->getZeroPrice(), 
+			$column
+		);
+	}
+
 	public function set($product){
 
 		$model_product = new ProductModel();
