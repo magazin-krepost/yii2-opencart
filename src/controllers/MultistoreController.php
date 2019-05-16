@@ -34,7 +34,7 @@ class MultistoreController {
 
 	function setAvailabeForStore($product_id, $multistore_id, $quantity){
 
-		echo "Product_ID :: ".$product_id." Multistore_ID :: ".$multistore_id."\n";
+		echo "Product_ID :: ".$product_id." / Multistore_ID :: ".$multistore_id." / Quantity :: ".$quantity."\n";
 
 		$model_multistore = new Multistore();
 		$model_product = new Product();
