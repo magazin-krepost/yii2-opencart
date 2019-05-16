@@ -42,6 +42,19 @@ class ProductController {
 
 	}
 
+	public function getProductIdFromBusinessruId($good_id){
+
+		$model_businessru = new ProductBusinessru();
+		$result = $model_businessru->getProductId($good_id);
+
+		if ( !empty($result) ){
+			return $result['product_id'];
+		} else {
+			return NULL;
+		}
+
+	}
+
 	public function getBySku($sku){
 		$model_product = new ProductModel();
 		return $model_product->getBySku($sku);
@@ -124,6 +137,11 @@ class ProductController {
 	public function setAnalog($product_id, $analog_id){
 		$model_analog = new ProductAnalog();
 		$model_analog->set($product_id, $analog_id);
+	}
+
+	public function clearAnalog(){
+		$model_analog = new ProductAnalog();
+		$model_analog->clear();
 	}
 
 	public function setBusinessruId($product){

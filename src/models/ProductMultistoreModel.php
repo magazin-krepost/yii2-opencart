@@ -53,7 +53,7 @@ class ProductMultistoreModel extends ActiveRecord {
 
 
 
-	public function clear($product_id = null, $multistore_id = null){
+	public function clear(){
 		$this->DeleteAll();
 	}
 
